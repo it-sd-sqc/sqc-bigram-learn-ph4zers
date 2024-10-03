@@ -61,4 +61,14 @@ class MainTest {
   }
 
   // TODO: Create your test(s) below. /////////////////////////////////////////
+  @Test
+  void singleApostropheEntry() {
+    Connection db = Main.createConnection();
+    assertDoesNotThrow(
+        () -> {
+            Main.createBigrams(db, "'");
+            db.close();
+        }
+    );
+  }
 }
